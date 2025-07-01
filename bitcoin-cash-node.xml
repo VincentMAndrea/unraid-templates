@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>bitcoin-cash-node</Name>
+  <Repository>zquestz/bitcoin-cash-node</Repository>
+  <Registry>https://hub.docker.com/r/zquestz/bitcoin-cash-node/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://bitcoincashnode.org/</Support>
+  <Project>https://bitcoincashnode.org/</Project>
+  <Overview>
+    Run your own full Bitcoin Cash (BCH) node to support the network and verify transactions trustlessly!
+    [br][br]
+    This uses the Bitcoin Cash Node (BCHN) implementation.
+    [br][br]
+    Be sure to forward port 8333 from your router to your Unraid server to allow incoming P2P connections.
+    [br][br]
+    To customize your node, create a bitcoin.conf file in your data directory. See:
+    [br]
+    https://github.com/bitcoin-cash-node/bitcoin-cash-node/blob/master/share/examples/bitcoin.conf
+  </Overview>
+  <Category>Tools:Network:Crypto:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/unraid-templates/master/bitcoin-cash-node.xml</TemplateURL>
+  <Icon>https://bitcoinbch.com/assets/img/resources/logo-2020/bitcoin-cash-circle.svg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Description>
+    Run a full Bitcoin Cash Node (BCHN) to support the BCH network. Keep your blockchain data safe and stay up to date with consensus rules.
+  </Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8333</HostPort>
+        <ContainerPort>8333</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8332</HostPort>
+        <ContainerPort>8332</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/blockchain/bchn/</HostDir>
+      <ContainerDir>/data/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="P2P TCP" Target="8333" Default="8333" Mode="tcp" Description="Port to listen for incoming node connections" Type="Port" Display="always" Required="true" Mask="false">8333</Config>
+  <Config Name="Local RPC" Target="8332" Default="8332" Mode="tcp" Description="Port to listen for RPC connections (Optional)" Type="Port" Display="always" Required="false" Mask="false">8332</Config>
+  <Config Name="Data" Target="/data/" Default="/mnt/user/blockchain/bchn/" Mode="rw" Description="Blockchain and database storage. Requires at least 500 GiB free disk space." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/blockchain/bchn/</Config>
+</Container>
