@@ -22,7 +22,7 @@
   </Overview>
   <Category>Tools:Network:Crypto:</Category>
   <WebUI/>
-  <TemplateURL>https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/unraid-templates/master/bitcoin-cash-node.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/VincentMAndrea/unraid-templates/refs/heads/main/bitcoin-cash-node.xml</TemplateURL>
   <Icon>https://bitcoinbch.com/assets/img/resources/logo-2020/bitcoin-cash-circle.svg</Icon>
   <ExtraParams/>
   <PostArgs/>
